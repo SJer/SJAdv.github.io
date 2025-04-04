@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="分享我開發 JobGenie 這款 AI 驅動求職工具的經驗與心得">
+<title>JobGenie 開發日記：從構想到實現的 AI 求職助手</title>
+
+<link rel='canonical' href='http://localhost:1313/post/jobgenie-development/'>
+
+<link rel="stylesheet" href="/scss/style.scss"><meta property='og:title' content="JobGenie 開發日記：從構想到實現的 AI 求職助手">
+<meta property='og:description' content="分享我開發 JobGenie 這款 AI 驅動求職工具的經驗與心得">
+<meta property='og:url' content='http://localhost:1313/post/jobgenie-development/'>
+<meta property='og:site_name' content='SJAdventure'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='JobGenie' /><meta property='article:tag' content='AI工具' /><meta property='article:tag' content='產品開發' /><meta property='article:tag' content='創業經驗' /><meta property='article:published_time' content='2025-04-04T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-04-04T00:00:00&#43;00:00'/><meta property='og:image' content='http://localhost:1313/img/jobgenie-development.jpg' />
+<meta name="twitter:title" content="JobGenie 開發日記：從構想到實現的 AI 求職助手">
+<meta name="twitter:description" content="分享我開發 JobGenie 這款 AI 驅動求職工具的經驗與心得"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='http://localhost:1313/img/jobgenie-development.jpg' />
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huda2458f72ce188392d75c5d51cd8e24e_373_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🚀</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">SJAdventure</a></h1>
+            <h2 class="site-description">科技 ✕ 人才 ✕ 創新轉型</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>關於我</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/contact/' >
+                
+                
+                
+                    
+                
+                <span>聯絡我</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>首頁</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>關於我</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/categories/tech-career' >
+                
+                
+                
+                    
+                
+                <span>技術與職涯</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/categories/canada-life' >
+                
+                
+                
+                    
+                
+                <span>加拿大生活</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/categories/startup-product' >
+                
+                
+                
+                    
+                
+                <span>創業與產品</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/contact' >
+                
+                
+                
+                    
+                
+                <span>聯絡我</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="http://localhost:1313/zh-tw/" >繁體中文</option>
+                                
+                                    <option value="http://localhost:1313/" selected>English</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#產品構想的誕生">產品構想的誕生</a>
+      <ul>
+        <li><a href="#發現問題">發現問題</a></li>
+        <li><a href="#市場調研">市場調研</a></li>
+      </ul>
+    </li>
+    <li><a href="#產品定義與規劃">產品定義與規劃</a>
+      <ul>
+        <li><a href="#核心功能定義">核心功能定義</a></li>
+        <li><a href="#mvp-規劃">MVP 規劃</a></li>
+      </ul>
+    </li>
+    <li><a href="#開發過程">開發過程</a>
+      <ul>
+        <li><a href="#第一階段原型開發4-週">第一階段：原型開發（4 週）</a></li>
+        <li><a href="#第二階段mvp-測試與迭代6-週">第二階段：MVP 測試與迭代（6 週）</a></li>
+        <li><a href="#第三階段產品完善與發布準備8-週">第三階段：產品完善與發布準備（8 週）</a></li>
+      </ul>
+    </li>
+    <li><a href="#商業模型與發布策略">商業模型與發布策略</a>
+      <ul>
+        <li><a href="#定價策略">定價策略</a></li>
+        <li><a href="#發布策略">發布策略</a></li>
+        <li><a href="#早期牽引">早期牽引</a></li>
+      </ul>
+    </li>
+    <li><a href="#經驗教訓與未來計劃">經驗教訓與未來計劃</a>
+      <ul>
+        <li><a href="#關鍵經驗教訓">關鍵經驗教訓</a></li>
+        <li><a href="#未來發展路線圖">未來發展路線圖</a></li>
+      </ul>
+    </li>
+    <li><a href="#結語">結語</a></li>
+  </ul>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/post/jobgenie-development/">
+                
+                    <img src="/img/jobgenie-development.jpg" loading="lazy" alt="Featured image of post JobGenie 開發日記：從構想到實現的 AI 求職助手" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/startup-product/" >
+                創業與產品
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/post/jobgenie-development/">JobGenie 開發日記：從構想到實現的 AI 求職助手</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            分享我開發 JobGenie 這款 AI 驅動求職工具的經驗與心得
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Apr 04, 2025</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    1 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="jobgenie-開發日記從構想到實現的-ai-求職助手">JobGenie 開發日記：從構想到實現的 AI 求職助手
+</h1><p>在當今競爭激烈的就業市場中，求職者需要各種工具來提升自己的競爭力。作為一名擁有豐富 HR 技術經驗的專業人士，我看到了利用 AI 技術幫助求職者的巨大潛力，這就是 JobGenie 的誕生背景。本文將分享我開發 JobGenie 這款 AI 驅動求職助手的全過程，從最初的構想到實際產品的推出。</p>
+<h2 id="產品構想的誕生">產品構想的誕生
+</h2><h3 id="發現問題">發現問題
+</h3><p>在我多年的 HR 系統和招聘經驗中，我注意到一個反覆出現的問題：許多優秀的求職者因為不了解 ATS（申請追蹤系統）的運作方式，或者無法有效地展示自己的技能，而被篩選掉。</p>
+<p><strong>關鍵洞察</strong>：</p>
+<ul>
+<li>大多數公司使用 ATS 系統進行初步篩選</li>
+<li>超過 75% 的簡歷在人工審核前就被系統過濾掉</li>
+<li>許多求職者不知道如何針對特定職位優化簡歷</li>
+<li>面試準備往往缺乏針對性和結構性</li>
+</ul>
+<h3 id="市場調研">市場調研
+</h3><p>在確定這個問題後，我進行了深入的市場調研：</p>
+<ol>
+<li><strong>競爭分析</strong>：評估現有的簡歷優化和面試準備工具</li>
+<li><strong>用戶訪談</strong>：與 50 名不同背景的求職者交談</li>
+<li><strong>HR 專業人士意見</strong>：收集 15 名招聘經理和 HR 專家的反饋</li>
+<li><strong>技術可行性評估</strong>：研究 AI 和 NLP 技術在簡歷分析中的應用</li>
+</ol>
+<p><strong>調研結果</strong>：市場上有許多簡歷模板工具和一般性的面試準備資源，但很少有工具能夠提供個性化的、基於 AI 的簡歷優化和面試準備指導。</p>
+<h2 id="產品定義與規劃">產品定義與規劃
+</h2><h3 id="核心功能定義">核心功能定義
+</h3><p>基於調研結果，我確定了 JobGenie 的核心功能：</p>
+<ol>
+<li><strong>AI 簡歷分析</strong>：分析簡歷與職位描述的匹配度</li>
+<li><strong>關鍵字優化建議</strong>：提供針對特定職位的關鍵字建議</li>
+<li><strong>ATS 友好格式轉換</strong>：確保簡歷能被 ATS 系統正確解析</li>
+<li><strong>個性化面試問題生成</strong>：基於職位描述和個人簡歷生成可能的面試問題</li>
+<li><strong>面試回答指導</strong>：提供結構化回答框架和示例</li>
+</ol>
+<h3 id="mvp-規劃">MVP 規劃
+</h3><p>為了快速驗證產品概念，我決定先開發一個最小可行產品 (MVP)，專注於兩個核心功能：</p>
+<ol>
+<li>簡歷與職位描述匹配度分析</li>
+<li>關鍵字優化建議</li>
+</ol>
+<p><strong>技術選擇</strong>：</p>
+<ul>
+<li>前端：React.js（用戶友好的界面）</li>
+<li>後端：Node.js（快速開發和部署）</li>
+<li>AI 模型：OpenAI API（強大的文本分析能力）</li>
+<li>數據存儲：MongoDB（靈活的文檔存儲）</li>
+<li>部署：AWS（可擴展性和穩定性）</li>
+</ul>
+<h2 id="開發過程">開發過程
+</h2><h3 id="第一階段原型開發4-週">第一階段：原型開發（4 週）
+</h3><p>在這個階段，我專注於構建一個功能性原型：</p>
+<p><strong>週 1-2</strong>：設計用戶界面和用戶體驗</p>
+<ul>
+<li>創建低保真和高保真原型</li>
+<li>進行初步用戶測試</li>
+<li>調整設計基於反饋</li>
+</ul>
+<p><strong>週 3-4</strong>：開發核心功能</p>
+<ul>
+<li>實現文件上傳和解析</li>
+<li>整合 OpenAI API 進行文本分析</li>
+<li>開發匹配算法和評分系統</li>
+</ul>
+<p><strong>挑戰與解決方案</strong>：
+最大的挑戰是從不同格式的簡歷中準確提取結構化信息。我嘗試了多種解析庫，最終選擇了一個基於機器學習的解決方案，並添加了自定義規則來提高準確性。</p>
+<h3 id="第二階段mvp-測試與迭代6-週">第二階段：MVP 測試與迭代（6 週）
+</h3><p>有了功能性原型後，我開始與真實用戶進行測試：</p>
+<p><strong>週 1-2</strong>：封閉測試</p>
+<ul>
+<li>邀請 20 名測試用戶</li>
+<li>收集詳細反饋</li>
+<li>識別關鍵問題和改進點</li>
+</ul>
+<p><strong>週 3-4</strong>：迭代開發</p>
+<ul>
+<li>改進匹配算法</li>
+<li>優化用戶界面</li>
+<li>增強關鍵字建議功能</li>
+</ul>
+<p><strong>週 5-6</strong>：擴大測試範圍</p>
+<ul>
+<li>擴展到 100 名測試用戶</li>
+<li>A/B 測試不同功能變體</li>
+<li>收集使用數據和成功案例</li>
+</ul>
+<p><strong>關鍵發現</strong>：
+用戶特別喜歡看到他們的簡歷與職位描述的匹配分數，以及具體的改進建議。然而，許多用戶希望有更多的指導來實施這些建議。這促使我添加了一個新功能：AI 輔助的簡歷編輯器。</p>
+<h3 id="第三階段產品完善與發布準備8-週">第三階段：產品完善與發布準備（8 週）
+</h3><p>基於測試反饋，我進一步完善了產品：</p>
+<p><strong>週 1-3</strong>：功能擴展</p>
+<ul>
+<li>開發 AI 輔助的簡歷編輯器</li>
+<li>添加面試問題生成功能</li>
+<li>實現用戶賬戶和簡歷存儲</li>
+</ul>
+<p><strong>週 4-5</strong>：性能優化</p>
+<ul>
+<li>提高 API 響應速度</li>
+<li>優化移動端體驗</li>
+<li>實施安全最佳實踐</li>
+</ul>
+<p><strong>週 6-8</strong>：發布準備</p>
+<ul>
+<li>設置支付系統和訂閱模型</li>
+<li>創建營銷網站和材料</li>
+<li>準備用戶指南和支持文檔</li>
+</ul>
+<h2 id="商業模型與發布策略">商業模型與發布策略
+</h2><h3 id="定價策略">定價策略
+</h3><p>經過市場調研和用戶反饋，我確定了以下定價模型：</p>
+<ol>
+<li><strong>免費版</strong>：基本簡歷分析，有使用限制</li>
+<li><strong>專業版</strong>：$15/月，完整功能訪問</li>
+<li><strong>高級版</strong>：$25/月，包括優先支持和高級 AI 功能</li>
+</ol>
+<h3 id="發布策略">發布策略
+</h3><p>我採用了分階段發布策略：</p>
+<ol>
+<li><strong>軟發布</strong>：邀請制，限制用戶數量，收集早期反饋</li>
+<li><strong>公開測試版</strong>：開放註冊，但標記為測試版，持續收集反饋</li>
+<li><strong>正式發布</strong>：全功能產品，開始營銷活動</li>
+</ol>
+<h3 id="早期牽引">早期牽引
+</h3><p>在軟發布階段，JobGenie 取得了令人鼓舞的成績：</p>
+<ul>
+<li>500+ 註冊用戶</li>
+<li>70% 的月活躍率</li>
+<li>15% 的免費轉付費轉化率</li>
+<li>多個成功案例，包括用戶報告面試邀請增加 40%</li>
+</ul>
+<h2 id="經驗教訓與未來計劃">經驗教訓與未來計劃
+</h2><h3 id="關鍵經驗教訓">關鍵經驗教訓
+</h3><ol>
+<li><strong>用戶反饋至關重要</strong>：最有價值的產品洞察來自真實用戶的反饋</li>
+<li><strong>專注於核心價值</strong>：在 MVP 階段，專注於解決一個明確的問題比添加多種功能更重要</li>
+<li><strong>技術選擇權衡</strong>：使用 AI API 加速開發，但要注意長期成本和依賴性</li>
+<li><strong>數據驅動決策</strong>：使用數據指導產品決策，而不僅僅是直覺</li>
+</ol>
+<h3 id="未來發展路線圖">未來發展路線圖
+</h3><p>JobGenie 的未來發展計劃包括：</p>
+<ol>
+<li><strong>擴展 AI 能力</strong>：整合更先進的 AI 模型，提供更精確的建議</li>
+<li><strong>行業特定模型</strong>：開發針對不同行業的專門模型和建議</li>
+<li><strong>整合生態系統</strong>：與求職平台和 ATS 系統集成</li>
+<li><strong>國際化</strong>：支持多語言和不同地區的求職市場</li>
+<li><strong>社區功能</strong>：建立求職者社區，分享經驗和資源</li>
+</ol>
+<h2 id="結語">結語
+</h2><p>開發 JobGenie 是一段充滿挑戰但也非常有價值的旅程。從最初的構想到功能性產品，每一步都帶來了新的學習和洞察。最令人滿足的是看到用戶使用這個工具成功找到工作，這證實了產品的價值和潛力。</p>
+<p>創業不僅僅是關於技術和產品，更是關於解決真實問題和創造價值。JobGenie 的故事仍在繼續，我期待著與更多用戶一起成長和進化。</p>
+<hr>
+<p>您對 JobGenie 或 AI 驅動的求職工具有什麼想法或問題？正在開發自己的產品嗎？歡迎在評論區分享，或通過<a class="link" href="/contact" >聯絡頁面</a>與我交流。</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/jobgenie/">JobGenie</a>
+        
+            <a href="/tags/ai%E5%B7%A5%E5%85%B7/">AI工具</a>
+        
+            <a href="/tags/%E7%94%A2%E5%93%81%E9%96%8B%E7%99%BC/">產品開發</a>
+        
+            <a href="/tags/%E5%89%B5%E6%A5%AD%E7%B6%93%E9%A9%97/">創業經驗</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <div class="disqus-container">
+    
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2025 SJAdventure
+    </section>
+    
+    <section class="powerby">
+        
+            科技 ✕ 人才 ✕ 創新轉型 <br/>
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.cf1d49e4419ea6f521a4369defaff10357ffd7427cca5c187d53fbed35707fb1.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

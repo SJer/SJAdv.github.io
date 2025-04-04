@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Categories on SJAdventure</title>
+        <link>http://localhost:1313/categories/</link>
+        <description>Recent content in Categories on SJAdventure</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en</language>
+        <lastBuildDate>Fri, 04 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>創業與產品</title>
+        <link>http://localhost:1313/categories/startup-product/</link>
+        <pubDate>Fri, 04 Apr 2025 00:00:00 +0000</pubDate>
+        
+        <guid>http://localhost:1313/categories/startup-product/</guid>
+        <description>&lt;h1 id=&#34;創業與產品&#34;&gt;創業與產品
+&lt;/h1&gt;&lt;p&gt;在這個區塊，我分享我的創業經歷、產品開發過程和相關洞察。作為一個有三次創業經驗的科技人，我希望通過分享我的故事和經驗，為有創業夢想或正在創業路上的朋友提供參考和啟發。&lt;/p&gt;
+&lt;h2 id=&#34;主要主題&#34;&gt;主要主題
+&lt;/h2&gt;&lt;h3 id=&#34;jobgenie-開發日記&#34;&gt;JobGenie 開發日記
+&lt;/h3&gt;&lt;p&gt;記錄我開發 JobGenie 這款 AI 驅動求職助手的全過程，從最初的構想到實際產品的推出。&lt;/p&gt;
+&lt;h3 id=&#34;cycleref-發展紀錄&#34;&gt;CycleRef 發展紀錄
+&lt;/h3&gt;&lt;p&gt;分享 CycleRef 循環經濟參考平台的發展歷程，包括市場調研、產品設計和推廣策略。&lt;/p&gt;
+&lt;h3 id=&#34;no-code-ai-工具開發&#34;&gt;No-code AI 工具開發
+&lt;/h3&gt;&lt;p&gt;探討如何利用 no-code 和 low-code 平台快速開發 AI 驅動的工具和應用，降低技術門檻。&lt;/p&gt;
+&lt;h3 id=&#34;創業經驗與教訓&#34;&gt;創業經驗與教訓
+&lt;/h3&gt;&lt;p&gt;分享我三次創業經歷中的成功經驗和失敗教訓，以及對創業生態的觀察和思考。&lt;/p&gt;
+&lt;h2 id=&#34;最新文章&#34;&gt;最新文章
+&lt;/h2&gt;&lt;p&gt;這裡將顯示該類別的最新文章。&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>加拿大生活</title>
+        <link>http://localhost:1313/categories/canada-life/</link>
+        <pubDate>Fri, 04 Apr 2025 00:00:00 +0000</pubDate>
+        
+        <guid>http://localhost:1313/categories/canada-life/</guid>
+        <description>&lt;h1 id=&#34;加拿大生活&#34;&gt;加拿大生活
+&lt;/h1&gt;&lt;p&gt;在這個區塊，我分享我作為新移民在加拿大的生活經驗、挑戰與收穫。從落地安頓到文化適應，從工作求職到日常生活，希望我的經歷能為其他正在或計劃移民加拿大的朋友提供參考和幫助。&lt;/p&gt;
+&lt;h2 id=&#34;主要主題&#34;&gt;主要主題
+&lt;/h2&gt;&lt;h3 id=&#34;新移民日記&#34;&gt;新移民日記
+&lt;/h3&gt;&lt;p&gt;記錄從落地到安頓的全過程，包括辦理各種證件、尋找住所、適應新環境等實用指南。&lt;/p&gt;
+&lt;h3 id=&#34;家庭在異地&#34;&gt;家庭在異地
+&lt;/h3&gt;&lt;p&gt;分享家庭在異國他鄉面臨的挑戰與機遇，以及如何在新環境中建立穩固的家庭關係。&lt;/p&gt;
+&lt;h3 id=&#34;教育與醫療&#34;&gt;教育與醫療
+&lt;/h3&gt;&lt;p&gt;介紹加拿大的教育系統和醫療服務，幫助新移民家庭更好地了解和利用這些資源。&lt;/p&gt;
+&lt;h3 id=&#34;文化適應&#34;&gt;文化適應
+&lt;/h3&gt;&lt;p&gt;探討文化差異和適應過程，分享融入當地社會的經驗和技巧。&lt;/p&gt;
+&lt;h2 id=&#34;最新文章&#34;&gt;最新文章
+&lt;/h2&gt;&lt;p&gt;這裡將顯示該類別的最新文章。&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>技術與職涯</title>
+        <link>http://localhost:1313/categories/tech-career/</link>
+        <pubDate>Fri, 04 Apr 2025 00:00:00 +0000</pubDate>
+        
+        <guid>http://localhost:1313/categories/tech-career/</guid>
+        <description>&lt;h1 id=&#34;技術與職涯&#34;&gt;技術與職涯
+&lt;/h1&gt;&lt;p&gt;在這個區塊，我分享關於 HR 技術、數位轉型和職涯發展的專業洞察和實用知識。憑藉我超過 10 年的系統開發、專案管理和 HR 數位轉型經驗，我希望能為您提供有價值的內容，幫助您在這個快速變化的領域中保持競爭力。&lt;/p&gt;
+&lt;h2 id=&#34;主要主題&#34;&gt;主要主題
+&lt;/h2&gt;&lt;h3 id=&#34;hr-數位轉型&#34;&gt;HR 數位轉型
+&lt;/h3&gt;&lt;p&gt;探討如何成功實施 HR 數位轉型策略，從規劃到執行的全方位指南。&lt;/p&gt;
+&lt;h3 id=&#34;數據驅動-hr-決策&#34;&gt;數據驅動 HR 決策
+&lt;/h3&gt;&lt;p&gt;分享如何利用數據分析來優化 HR 流程和決策，包括實用工具和方法。&lt;/p&gt;
+&lt;h3 id=&#34;工作流程自動化&#34;&gt;工作流程自動化
+&lt;/h3&gt;&lt;p&gt;介紹各種自動化工具和技術，幫助 HR 專業人員提高效率和生產力。&lt;/p&gt;
+&lt;h3 id=&#34;系統導入實戰&#34;&gt;系統導入實戰
+&lt;/h3&gt;&lt;p&gt;分享我在導入 Workday、SuccessFactors 等系統的實戰經驗和最佳實踐。&lt;/p&gt;
+&lt;h2 id=&#34;最新文章&#34;&gt;最新文章
+&lt;/h2&gt;&lt;p&gt;這裡將顯示該類別的最新文章。&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

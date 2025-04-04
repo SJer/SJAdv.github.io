@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Sitemap: https://labs.sjer.cc/sitemap.xml
+
+# Disallow development and system files
+Disallow: /livereload.js
+Disallow: /.git/
+Disallow: /.github/
+Disallow: /node_modules/ 
